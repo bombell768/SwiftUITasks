@@ -29,19 +29,20 @@ struct ChangingColorToggleStyle: ToggleStyle {
             
             Spacer()
             
-            RoundedRectangle(cornerRadius: 16)
-                .fill(configuration.isOn ? Color.indigo : Color.gray)
-                .frame(width: 50, height: 30)
-                .overlay(
-                    Circle()
-                        .fill(Color.white)
-                        .padding(3)
-                        .offset(x: configuration.isOn ? 10 : -10)
-                        .animation(.easeInOut(duration: 0.2), value: configuration.isOn)
-                )
-                .onTapGesture {
+            ZStack(alignment: configuration.isOn ? .trailing : .leading) {
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(configuration.isOn ? Color.indigo : Color.gray)
+                Circle()
+                    .fill(Color.white)
+                    .padding(3)
+            }
+            .frame(width: 50, height: 30)
+            .contentShape(Rectangle())
+            .onTapGesture {
+                withAnimation(.easeInOut(duration: 0.2)) {
                     configuration.isOn.toggle()
                 }
+            }
         }
         .padding()
     }

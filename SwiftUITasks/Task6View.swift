@@ -17,15 +17,8 @@ struct Task6View: View {
     ]
     
     var body: some View {
-        List {
-            ForEach($groceries) { $product in
-                HStack {
-                    Text(product.name)
-                    Spacer()
-                    Toggle("", isOn: $product.isEnabled)
-                        .labelsHidden()
-                }
-            }
+        List($groceries) { $product in
+            Toggle(product.name, isOn: $product.isEnabled)
         }
     }
 }

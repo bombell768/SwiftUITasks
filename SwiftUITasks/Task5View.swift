@@ -18,25 +18,26 @@ struct Task5View: View {
             }
             CardView(title: "Profile") {
                 HStack {
-                    Spacer()
                     VStack {
                         Text("Followers")
                         Text("1.2k")
                             .bold()
                     }
-                    Spacer()
+                    .frame(maxWidth: .infinity)
+                    
                     VStack {
                         Text("Posts")
                         Text("87")
                             .bold()
                     }
-                    Spacer()
+                    .frame(maxWidth: .infinity)
+                    
                     VStack {
                         Text("Likes")
                         Text("46 547")
                             .bold()
                     }
-                    Spacer()
+                    .frame(maxWidth: .infinity)
                 }
             }
             
@@ -67,7 +68,7 @@ struct CardView<Content: View>: View {
             Text(title)
                 .font(.headline)
                 .padding(.bottom, 4)
-            
+            Divider()
             content()
         }
         .padding()

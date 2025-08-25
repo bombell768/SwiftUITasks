@@ -12,7 +12,7 @@ struct Task3View: View {
         HStack(alignment: .center, spacing: 16) {
             Circle()
                 .fill(Color.indigo)
-                .frame(width: 50)
+                .frame(width: 50, height: 50)
             
             VStack(alignment: .leading) {
                 Text("John Doe")

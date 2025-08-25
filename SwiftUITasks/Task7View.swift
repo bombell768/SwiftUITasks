@@ -9,41 +9,34 @@ import SwiftUI
 
 struct Task7View: View {
     let user: User
-
-        var body: some View {
-            ZStack(alignment: .topTrailing) {
-                VStack(alignment: .leading, spacing: 12) {
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(user.name)
-                                .font(.title)
-                                .bold()
-                            Text("Age: \(user.age)")
-                                .font(.subheadline)
-                            Text("Location: \(user.location)")
-                                .font(.subheadline)
-                        }
-                        Spacer()
-                    }
-                    .padding()
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .background(Color(.systemGray6))
-                .cornerRadius(20)
-                .padding()
-
-                if user.isPremium {
-                    Text("💸 Premium")
-                        .font(.footnote)
-                        .bold()
-                        .padding(8)
-                        .background(Color.yellow)
-                        .foregroundColor(.black)
-                        .clipShape(Capsule())
-                        .padding([.top, .trailing], 24)
-                }
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(user.name)
+                .font(.title)
+                .bold()
+            Text("Age: \(user.age)")
+                .font(.subheadline)
+            Text("Location: \(user.location)")
+                .font(.subheadline)
+        }
+        .padding()
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color(.systemGray6))
+        .cornerRadius(20)
+        .overlay(alignment: .topTrailing) {
+            if user.isPremium {
+                Text("💸 Premium")
+                    .font(.footnote)
+                    .bold()
+                    .padding(8)
+                    .background(Color.yellow)
+                    .foregroundColor(.black)
+                    .clipShape(Capsule())
+                    .padding([.top, .trailing], 24)
             }
         }
+    }
 }
 
 #Preview {
