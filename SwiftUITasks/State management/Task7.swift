@@ -8,7 +8,7 @@
 import SwiftUI
 
 @Observable
-class Counter {
+final class Counter {
     var value: Int = 0
 }
 

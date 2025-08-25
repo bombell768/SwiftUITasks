@@ -8,7 +8,7 @@
 import SwiftUI
 
 @Observable
-class UserProfile {
+final class UserProfile {
     var name: String = "Jane Doe"
     var email: String = "jane@example.com"
 }

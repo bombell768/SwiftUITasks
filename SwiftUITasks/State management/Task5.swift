@@ -8,7 +8,7 @@
 import SwiftUI
 
 @Observable
-class FormModel {
+final class FormModel {
     var username: String = ""
     
     var isValid: Bool {
